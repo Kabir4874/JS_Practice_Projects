@@ -1,6 +1,6 @@
 console.log("Hello");
 
-async function showWeather() {
+async function FetchWeather() {
   try {
     let city = "goa";
     const apiKey = "50645afe7dc713ebcce15941bd98bf95";
@@ -18,7 +18,7 @@ async function showWeather() {
     console.log(e);
   }
 }
-showWeather();
+FetchWeather();
 
 // 50645afe7dc713ebcce15941bd98bf95
 
