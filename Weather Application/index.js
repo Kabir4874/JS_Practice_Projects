@@ -28,6 +28,16 @@ function renderWeatherInfo(weatherInfo) {
   const windSpeed = document.querySelector("[data-windSpeed]");
   const humidity = document.querySelector("[data-humidity]");
   const cloudiness = document.querySelector("[data-cloud]");
+
+  cityName.innerText = weatherInfo?.name;
+  countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
+
+  desc.innerText = weatherInfo?.weather?.[0]?.description;
+  weatherIcon.src = `http://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`;
+  temp.innerText = weatherInfo?.main?.temp;
+  windSpeed.innerText = weatherInfo?.wind?.speed;
+  humidity.innerText = weatherInfo?.main?.humidity;
+  cloudiness.innerText = weatherInfo?.clouds?.all;
 }
 
 async function fetchUserWeatherInfo(coordinates) {
@@ -81,6 +91,27 @@ userTab.addEventListener("click", () => {
 searchTab.addEventListener("click", () => {
   switchTab(searchTab);
 });
+
+function showPosition(position){
+  const userCoordinates= {
+    lat: position.coords.latitude,
+    lon: position.coords.longitude,
+  }
+  sessionStorage.setItem("user-coordinates", JSON.stringify(userCoordinates));
+  fetchUserWeatherInfo(userCoordinates);
+}
+
+function getLocation(){
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(showPosition);
+  }
+  else{
+    // HW -> Show an Alert
+  }
+}
+
+const grantAccessBtn= document.querySelector("[data-grantAccess]");
+grantAccessBtn.addEventListener("click", getLocation);
 
 // 50645afe7dc713ebcce15941bd98bf95
 
