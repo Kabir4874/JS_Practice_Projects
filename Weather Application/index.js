@@ -18,6 +18,7 @@ let currentTab = userTab;
 const apiKey = "50645afe7dc713ebcce15941bd98bf95";
 
 currentTab.classList.add("current-tab");
+getFromSessionStorage();
 
 function renderWeatherInfo(weatherInfo) {
   const cityName = document.querySelector("[data-cityName]");
@@ -92,26 +93,54 @@ searchTab.addEventListener("click", () => {
   switchTab(searchTab);
 });
 
-function showPosition(position){
-  const userCoordinates= {
+function showPosition(position) {
+  const userCoordinates = {
     lat: position.coords.latitude,
     lon: position.coords.longitude,
-  }
+  };
   sessionStorage.setItem("user-coordinates", JSON.stringify(userCoordinates));
   fetchUserWeatherInfo(userCoordinates);
 }
 
-function getLocation(){
-  if(navigator.geolocation){
+function getLocation() {
+  if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
-  }
-  else{
+  } else {
     // HW -> Show an Alert
   }
 }
 
-const grantAccessBtn= document.querySelector("[data-grantAccess]");
+const grantAccessBtn = document.querySelector("[data-grantAccess]");
 grantAccessBtn.addEventListener("click", getLocation);
+
+const searchInput = document.querySelector("[data-searchInput]");
+
+async function fetchSearchWeatherInfo(city) {
+  loadingScreen.classList.add("active");
+  userInfoContainer.classList.remove("active");
+  grantAccessContainer.classList.remove("active");
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+    );
+    const data = await response.json();
+    loadingScreen.classList.remove("active");
+    userInfoContainer.classList.add("active");
+    renderWeatherInfo(data);
+  } catch (err) {
+    //HW
+  }
+}
+
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let cityName = searchInput.value;
+  if (cityName === "") {
+    return;
+  } else {
+    fetchSearchWeatherInfo(cityName);
+  }
+});
 
 // 50645afe7dc713ebcce15941bd98bf95
 
