@@ -27,6 +27,58 @@
           <p>Allow access to get weather information</p>
           <button class="btn" data-grantAccess>Grant Access</button>
         </div>
+        <!-- !Search Form  -->
+        <form class="form-container" data-searchForm>
+          <input
+            type="text"
+            placeholder="Search for City..."
+            data-searchInput
+          />
+          <button class="btn">
+            <img
+              src="assets/search.png"
+              alt=""
+              width="20"
+              height="20"
+              loading="lazy"
+            />
+          </button>
+        </form>
+        <!-- !Loading Screen  -->
+        <div class="loading-container">
+          <img src="assets/loading.gif" alt="" width="150" height="150" />
+          <p>Loading</p>
+        </div>
+        <!-- !Show Weather Info  -->
+        <div class="user-info-container">
+          <div class="name">
+            <p data-cityName></p>
+            <img src="" alt="" data-countryIcon />
+          </div>
+          <p data-weatherDesc></p>
+          <img src="" alt="" data-weatherIcon />
+          <p data-temp></p>
+          <div class="parameter-container">
+            <!-- *Card 1 -->
+            <div class="parameter">
+              <img src="assets/wind.png" alt="" loading="lazy" />
+              <p>Wind Speed</p>
+              <p data-windSpeed></p>
+            </div>
+            <!-- *Card 2 -->
+            <div class="parameter">
+              <img src="assets/humidity.png" alt="" loading="lazy" />
+              <p>Humidity</p>
+              <p data-humidity></p>
+            </div>
+            <!-- *Card 3 -->
+            <div class="parameter">
+              <img src="assets/cloud.png" alt="" loading="lazy" />
+              <p>Cloud</p>
+              <p data-cloud></p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <script src="index.js"></script>
