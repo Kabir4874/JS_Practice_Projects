@@ -39,9 +39,9 @@ function renderWeatherInfo(weatherInfo) {
   const formattedTemp = Math.round(temperature * 100) / (100).toString();
 
   temp.innerText = `${formattedTemp} °C`;
-  windSpeed.innerText = weatherInfo?.wind?.speed;
-  humidity.innerText = weatherInfo?.main?.humidity;
-  cloudiness.innerText = weatherInfo?.clouds?.all;
+  windSpeed.innerText = `${weatherInfo?.wind?.speed}m/s`;
+  humidity.innerText = `${weatherInfo?.main?.humidity}%`;
+  cloudiness.innerText = `${weatherInfo?.clouds?.all}%`;
 }
 
 async function fetchUserWeatherInfo(coordinates) {
