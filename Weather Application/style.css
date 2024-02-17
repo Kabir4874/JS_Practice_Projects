@@ -80,15 +80,49 @@ h1 {
   margin-bottom: 1.75rem;
   letter-spacing: 0.75px;
 }
-.loading-container{
+.loading-container {
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.loading-container.active{
+.loading-container.active {
   display: flex;
 }
-.loading-container p{
+.loading-container p {
   text-transform: uppercase;
+}
+.user-info-container {
+  /* display: none; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.user-info-container.active {
+  display: flex;
+}
+.name {
+  display: flex;
+  align-items: center;
+  gap: 0 0.5rem;
+  margin-bottom: 1rem;
+}
+.name p {
+  font-size: 2rem;
+}
+.name img {
+  width: 30px;
+}
+.weather-desc {
+  font-size: 1.5rem;
+  font-weight: 200;
+  text-transform: capitalize;
+}
+.user-info-img {
+  width: 90px;
+}
+.user-info-container p[data-temp]{
+  font-size: 2.75rem;
+  font-weight: 700;
 }
