@@ -63,6 +63,17 @@ function checkGameOver() {
   if (answer !== "") {
     gameInfo.innerHTML = `Winner Player - ${answer}`;
     btn.classList.add("active");
+    return;
+  }
+  let fillCount = 0;
+  gameGrid.forEach((box) => {
+    if (box !== "") {
+      fillCount++;
+    }
+  });
+  if (fillCount === 9) {
+    gameInfo.innerHTML = "Game Tied";
+    btn.classList.add("active");
   }
 }
 
