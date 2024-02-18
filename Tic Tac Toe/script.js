@@ -18,6 +18,10 @@ const winningPosition = [
 function initGame() {
   currentPlayer = "X";
   gameGrid = ["", "", "", "", "", "", "", "", ""];
+  boxes.forEach((box, index) => {
+    box.innerHTML = "";
+    box.style.pointerEvents = "all";
+  });
   btn.classList.remove("active");
   gameInfo.innerText = `Current Player - ${currentPlayer}`;
 }
@@ -32,13 +36,33 @@ function swapTurn() {
   gameInfo.innerHTML = `Current Player - ${currentPlayer}`;
 }
 
-
+function checkGameOver() {
+  let answer = "";
+  winningPosition.forEach((position) => {
+    if (
+      (gameGrid[position[0]] !== "" ||
+        gameGrid[position[1]] !== "" ||
+        gameGrid[position[2]] !== "") &&
+      gameGrid[position[0]] === gameGrid[position[1]] &&
+      gameGrid[position[1]] === gameGrid[position[2]]
+    ) {
+      if (gameGrid[position[0]] === "X") {
+        answer = "X";
+      } else {
+        answer = "O";
+      }
+      boxes[position[0]].classList.add("win");
+      boxes[position[1]].classList.add("win");
+      boxes[position[2]].classList.add("win");
+    }
+  });
+}
 
 function handleClick(index) {
   if (gameGrid[index] === "") {
     boxes[index].innerHTML = currentPlayer;
     gameGrid[index] = currentPlayer;
-    boxes[index].style.pointerEvents='none';
+    boxes[index].style.pointerEvents = "none";
     swapTurn();
     checkGameOver();
   }
@@ -49,3 +73,5 @@ boxes.forEach((box, index) => {
     handleClick(index);
   });
 });
+
+btn.addEventListener("click", initGame);
