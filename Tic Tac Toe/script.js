@@ -21,6 +21,7 @@ function initGame() {
   boxes.forEach((box, index) => {
     box.innerHTML = "";
     box.style.pointerEvents = "all";
+    box.classList.remove("win");
   });
   btn.classList.remove("active");
   gameInfo.innerText = `Current Player - ${currentPlayer}`;
@@ -51,11 +52,18 @@ function checkGameOver() {
       } else {
         answer = "O";
       }
+      boxes.forEach((box) => {
+        box.style.pointerEvents = "none";
+      });
       boxes[position[0]].classList.add("win");
       boxes[position[1]].classList.add("win");
       boxes[position[2]].classList.add("win");
     }
   });
+  if (answer !== "") {
+    gameInfo.innerHTML = `Winner Player - ${answer}`;
+    btn.classList.add("active");
+  }
 }
 
 function handleClick(index) {
