@@ -23,10 +23,22 @@ function initGame() {
 }
 initGame();
 
+function swapTurn() {
+  if (currentPlayer === "X") {
+    currentPlayer = "O";
+  } else {
+    currentPlayer = "X";
+  }
+  gameInfo.innerHTML = `Current Player - ${currentPlayer}`;
+}
+
+
+
 function handleClick(index) {
-  if (gameGrid[index] == "") {
+  if (gameGrid[index] === "") {
     boxes[index].innerHTML = currentPlayer;
     gameGrid[index] = currentPlayer;
+    boxes[index].style.pointerEvents='none';
     swapTurn();
     checkGameOver();
   }
