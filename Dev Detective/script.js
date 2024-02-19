@@ -5,6 +5,8 @@ const modeImg = document.querySelector("[modeImg]");
 let mode = localStorage.getItem("mode");
 const form = document.querySelector("[form]");
 const input = document.querySelector("[inputValue]");
+const avatar = document.querySelector("[avatar]");
+const displayName = document.querySelector("[displayName]");
 
 // !Dark Mode
 function setDarkMode() {
@@ -40,9 +42,15 @@ form.addEventListener("submit", (e) => {
   apiCall();
 });
 
+function render(data) {
+  avatar.src = `${data.avatar_url}`;
+  displayName.innerText = `${data.name}`;
+}
+
 async function apiCall() {
-  const response = await fetch(`https://api.github.com/${userName}/"`);
-  const data = response.json();
+  const response = await fetch(`https://api.github.com/users/` + userName);
+  const data = await response.json();
   console.log(data);
+  render(data);
 }
 // const url = "https://api.github.com/users/";
