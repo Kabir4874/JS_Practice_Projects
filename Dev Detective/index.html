@@ -1,14 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dev Detective</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="w-full h-[100vh] bg-lmBg">
+      <div
+        class="max-w-[45.625rem] m-auto relative top-[50%] translate-y-[-50%]"
+      >
+        <div class="flex justify-between items-center mb-9">
+          <h1 class="text-lmText text-[1.625rem] font-bold">DevDetective</h1>
+          <div class="flex items-center gap-7">
+            <p class="text-lmText text-[.8125rem] font-bold leading-[.156rem]">
+              Dark
+            </p>
+            <img
+              src="assets/moon-icon.svg"
+              alt=""
+              loading="lazy"
+              class="w-[1.25rem]"
+            />
+          </div>
+        </div>
+        <form
+          action=""
+          class="flex justify-between items-center py-3 pr-3 pl-6 shadow-lmShadow bg-white rounded-lg w-full mb-6"
+        >
+          <div class="flex gap-6">
+            <img src="assets/search-icon.svg" alt="" />
+            <input
+              type="search"
+              placeholder="Enter a GitHub username..."
+              class="outline-none border-none w-[25rem]"
+            />
+          </div>
+          <button
+            class="py-[.875rem] px-[1.75rem] rounded-xl bg-btn text-white font-bold"
+          >
+            Search
+          </button>
+        </form>
+        <div class="p-10 rounded-2xl bg-lmBgContent shadow-lmShadow flex gap-[3.31rem]">
+          <div
+            class="w-[7.3125rem] h-[7.3125rem] rounded-full bg-[url('https://static-prod.adweek.com/wp-content/uploads/2023/01/WhatsApp-Avatar-Profile-Photo-Hero-652x367.png')] bg-cover bg-center"
+          ></div>
+          <div class="w-full">
+            <div class="flex justify-between items-center">
+              <h2 class="text-lmTextAlt text-[1.625rem] font-bold">Himanshu Relhan</h2>
+              <p class="text-lmText text-[.9375rem]">Joined 25 sep 2020</p>
+            </div>
+            <a href="#" class="text-btn underline">@himanshu</a>
+            <p>post graduated</p>
+            <div>
+              <div>
+                <p>repos</p>
+                <p>65</p>
+              </div>
+              <div>
+                <p>repos</p>
+                <p>65</p>
+              </div>
+              <div>
+                <p>repos</p>
+                <p>65</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <img src="assets/location-icon.svg" alt="" />
+                <p>rohtak, haryana</p>
+              </div>
+              <div>
+                <img src="assets/twitter-icon.svg" alt="" />
+                <a href="#">himanshu_relhan</a>
+              </div>
+              <div>
+                <img src="assets/website-icon.svg" alt="" />
+                <a href="#">link</a>
+              </div>
+              <div>
+                <img src="assets/company-icon.svg" alt="" />
+                Not available
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
