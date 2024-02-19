@@ -2,25 +2,47 @@ const modeBtn = document.querySelector("[modeBtn]");
 const html = document.querySelector("html");
 const darkText = document.querySelector("[darkText]");
 const modeImg = document.querySelector("[modeImg]");
-const mode = localStorage.getItem("mode");
+let mode = localStorage.getItem("mode");
+const form = document.querySelector("[form]");
+const input = document.querySelector("[inputValue]");
 
-if (mode) {
+// !Dark Mode
+function setDarkMode() {
   html.classList.add("dark");
   darkText.innerText = "Light";
   modeImg.src = "assets/sun-icon.svg";
-}else{
-    html.classList.remove("dark");
 }
-modeBtn.addEventListener("click", () => {
-  html.classList.toggle("dark");
-  localStorage.setItem("mode", html.classList.contains("dark"));
+function setLightMode() {
+  html.classList.remove("dark");
+  darkText.innerText = "Dark";
+  modeImg.src = "assets/moon-icon.svg";
+}
+function toggleMode() {
   if (html.classList.contains("dark")) {
-    darkText.innerText = "Light";
-    modeImg.src = "assets/sun-icon.svg";
+    setLightMode();
+    localStorage.setItem("mode", "light");
   } else {
-    darkText.innerText = "Dark";
-    modeImg.src = "assets/moon-icon.svg";
+    setDarkMode();
+    localStorage.setItem("mode", "dark");
   }
+}
+if (mode === "light") {
+  setLightMode();
+} else {
+  setDarkMode();
+}
+let userName;
+modeBtn.addEventListener("click", toggleMode);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  userName = input.value;
+  console.log(userName);
+  apiCall();
 });
 
+async function apiCall() {
+  const response = await fetch(`https://api.github.com/${userName}/"`);
+  const data = response.json();
+  console.log(data);
+}
 // const url = "https://api.github.com/users/";
