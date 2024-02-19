@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,34 +7,37 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div class="w-full h-[100vh] bg-lmBg">
+    <div class="w-full h-[100vh] bg-lmBg dark:bg-lmText">
       <div
         class="max-w-[45.625rem] m-auto relative top-[50%] translate-y-[-50%]"
       >
         <div class="flex justify-between items-center mb-9">
-          <h1 class="text-lmText text-[1.625rem] font-bold">DevDetective</h1>
-          <div class="flex items-center gap-7">
-            <p class="text-lmText text-[.8125rem] font-bold leading-[.156rem]">
-              Dark
+          <h1 class="text-lmText text-[1.625rem] font-bold dark:text-white">
+            DevDetective
+          </h1>
+          <div class="flex items-center gap-7 cursor-pointer" modeBtn>
+            <p
+              class="text-lmText text-[.8125rem] font-bold leading-[.156rem] dark:text-white"
+              darkText
+            >
             </p>
             <img
-              src="assets/moon-icon.svg"
               alt=""
               loading="lazy"
               class="w-[1.25rem]"
+              modeImg
             />
           </div>
         </div>
         <form
-          action=""
-          class="flex justify-between items-center py-3 pr-3 pl-6 shadow-lmShadow bg-white rounded-lg w-full mb-6"
+          class="flex justify-between items-center py-3 pr-3 pl-6 shadow-lmShadow bg-white rounded-lg w-full mb-6 dark:bg-lmTextAlt"
         >
           <div class="flex gap-6">
             <img src="assets/search-icon.svg" alt="" />
             <input
               type="search"
               placeholder="Enter a GitHub username..."
-              class="outline-none border-none w-[25rem]"
+              class="outline-none border-none w-[25rem] bg-transparent dark:text-white"
             />
           </div>
           <button
@@ -44,44 +47,78 @@
           </button>
         </form>
         <div
-          class="p-10 rounded-2xl bg-lmBgContent shadow-lmShadow flex gap-[3.31rem]"
+          class="p-10 rounded-2xl bg-lmBgContent dark:bg-lmTextAlt shadow-lmShadow flex gap-[3.31rem]"
         >
           <div
-            class="w-[7.3125rem] h-[7.3125rem] rounded-full bg-[url('https://static-prod.adweek.com/wp-content/uploads/2023/01/WhatsApp-Avatar-Profile-Photo-Hero-652x367.png')] bg-cover bg-center"
+            class="w-[7.3125rem] h-[7.3125rem] rounded-full bg-[url('https://static-prod.adweek.com/wp-content/uploads/2023/01/WhatsApp-Avatar-Profile-Photo-Hero-652x367.png')] bg-cover bg-center basis-1/4"
           ></div>
-          <div class="w-[80%]">
+          <div class="w-full">
             <div class="flex justify-between items-center">
-              <h2 class="text-lmTextAlt text-[1.625rem] font-bold">
+              <h2
+                class="text-lmTextAlt text-[1.625rem] font-bold dark:text-white"
+              >
                 Himanshu Relhan
               </h2>
-              <p class="text-lmText text-[.9375rem]">Joined 25 sep 2020</p>
+              <p class="text-lmText text-[.9375rem] dark:text-white">
+                Joined 25 sep 2020
+              </p>
             </div>
-            <a href="#" class="text-btn underline mb-4">@himanshu</a>
-            <p class="text-lmText text-[.9375rem] leading-6 mb-[2.28rem]">
+            <a href="#" class="text-btn underline mb-4 dark:text-blue-500"
+              >@himanshu</a
+            >
+            <p
+              class="text-lmText text-[.9375rem] leading-6 mb-[2.28rem] dark:text-gray-400"
+            >
               post graduated
             </p>
             <div
-              class="py-[1.2rem] px-8 flex items-center justify-between rounded-xl bg-lmBg mb-9"
+              class="py-[1.2rem] px-8 flex items-center justify-between rounded-xl bg-lmBg dark:bg-black mb-9"
             >
               <div class="flex flex-col items-center">
-                <p class="text-lmText text-[.8125rem] capitalize">repos</p>
-                <p class="text-lmTextAlt text-[1.375rem] font-bold">65</p>
+                <p
+                  class="text-lmText text-[.8125rem] capitalize dark:text-white"
+                >
+                  repos
+                </p>
+                <p
+                  class="text-lmTextAlt text-[1.375rem] font-bold dark:text-white"
+                >
+                  65
+                </p>
               </div>
               <div class="flex flex-col items-center">
-                <p class="text-lmText text-[.8125rem] capitalize">repos</p>
-                <p class="text-lmTextAlt text-[1.375rem] font-bold">65</p>
+                <p
+                  class="text-lmText text-[.8125rem] capitalize dark:text-white"
+                >
+                  repos
+                </p>
+                <p
+                  class="text-lmTextAlt text-[1.375rem] font-bold dark:text-white"
+                >
+                  65
+                </p>
               </div>
               <div class="flex flex-col items-center">
-                <p class="text-lmText text-[.8125rem] capitalize">repos</p>
-                <p class="text-lmTextAlt text-[1.375rem] font-bold">65</p>
+                <p
+                  class="text-lmText text-[.8125rem] capitalize dark:text-white"
+                >
+                  repos
+                </p>
+                <p
+                  class="text-lmTextAlt text-[1.375rem] font-bold dark:text-white"
+                >
+                  65
+                </p>
               </div>
             </div>
-            <div class="grid grid-cols-2">
+            <div class="grid grid-cols-2 gap-y-4 gap-x-[6rem]">
               <div class="flex items-center gap-[1.25rem]">
                 <div class="w-[.875rem] h-auto">
                   <img src="assets/location-icon.svg" alt="" class="w-full" />
                 </div>
-                <p class="text-lmText text-[.9375rem] capitalize">
+                <p
+                  class="text-lmText text-[.9375rem] capitalize dark:text-white"
+                >
                   rohtak, haryana
                 </p>
               </div>
@@ -89,7 +126,9 @@
                 <div class="w-[1.25rem] h-auto">
                   <img src="assets/website-icon.svg" alt="" class="w-full" />
                 </div>
-                <a href="#" class="text-lmText text-[.9375rem] underline"
+                <a
+                  href="#"
+                  class="text-lmText text-[.9375rem] underline dark:text-white"
                   >link</a
                 >
               </div>
@@ -97,13 +136,19 @@
                 <div class="w-[1.25rem] h-auto">
                   <img src="assets/twitter-icon.svg" alt="" class="w-full" />
                 </div>
-                <a href="#" class="text-lmText text-[.9375rem] underline"
+                <a
+                  href="#"
+                  class="text-lmText text-[.9375rem] underline dark:text-white"
                   >himanshu_relhan</a
                 >
               </div>
-              <div>
-                <img src="assets/company-icon.svg" alt="" />
-                Not available
+              <div class="flex items-center gap-[1.25rem]">
+                <div><img src="assets/company-icon.svg" alt="" /></div>
+                <p
+                  class="text-lmText text-[.9375rem] capitalize dark:text-white"
+                >
+                  Not available
+                </p>
               </div>
             </div>
           </div>
