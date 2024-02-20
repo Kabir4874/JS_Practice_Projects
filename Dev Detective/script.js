@@ -7,15 +7,15 @@ const form = document.querySelector("[form]");
 const input = document.querySelector("[inputValue]");
 const avatar = document.querySelector("[avatar]");
 const displayName = document.querySelector("[displayName]");
-const login= document.querySelector("[login]");
-const  about= document.querySelector("[about]");
-const repo= document.querySelector("[repo]");
-const followers= document.querySelector("[followers]");
-const following= document.querySelector("[following]");
+const login = document.querySelector("[login]");
+const about = document.querySelector("[about]");
+const repo = document.querySelector("[repo]");
+const followers = document.querySelector("[followers]");
+const following = document.querySelector("[following]");
 const Location = document.querySelector("[location]");
-const link= document.querySelector("[link]");
-const twitter= document.querySelector("[twitter]");
-const company= document.querySelector("[company]");
+const link = document.querySelector("[link]");
+const twitter = document.querySelector("[twitter]");
+const company = document.querySelector("[company]");
 
 // !Dark Mode
 function setDarkMode() {
@@ -44,11 +44,11 @@ if (mode === "light") {
 }
 
 async function apiCall() {
-    const response = await fetch(`https://api.github.com/users/` + userName);
-    const data = await response.json();
-    console.log(data);
-    render(data);
-  }
+  const response = await fetch(`https://api.github.com/users/` + userName);
+  const data = await response.json();
+  console.log(data);
+  render(data);
+}
 let userName;
 modeBtn.addEventListener("click", toggleMode);
 form.addEventListener("submit", (e) => {
@@ -61,14 +61,31 @@ form.addEventListener("submit", (e) => {
 function render(data) {
   avatar.src = `${data.avatar_url}`;
   displayName.innerText = `${data.name}`;
-  login.innerText= `@${data.login}`;
-  about.innerText= `${data.bio}`;
-  repo.innerText=`${data.public_repos}`;
-  followers.innerText=`${data.followers}`;
-  following.innerText= `${data.following}`;
-  Location.innerText= `${data.location}`;
-  company.innerText=`${data.company}`;
+  login.innerText = `@${data.login}`;
+  about.innerText = `${data.bio}`;
+  repo.innerText = `${data.public_repos}`;
+  followers.innerText = `${data.followers}`;
+  following.innerText = `${data.following}`;
+  if (data.location === undefined || data.location === null) {
+    Location.innerText = "Not Available";
+  } else {
+    Location.innerText = `${data.location}`;
+  }
+  if (data.company === undefined || data.company === null) {
+    company.innerText = "Not Available";
+  } else {
+    company.innerText = `${data.company}`;
+  }
+  if (data.blog === undefined || data.blog === null) {
+    link.innerText = "Not Available";
+  } else {
+    link.innerText = `${data.blog}`;
+  }
+  if (data.twitter_username === undefined || data.twitter_username === null) {
+    twitter.innerText = "Not Available";
+  } else {
+    twitter.innerText = `${data.twitter_username}`;
+  }
 }
-
 
 // const url = "https://api.github.com/users/";
