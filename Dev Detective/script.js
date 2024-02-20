@@ -16,6 +16,7 @@ const Location = document.querySelector("[location]");
 const link = document.querySelector("[link]");
 const twitter = document.querySelector("[twitter]");
 const company = document.querySelector("[company]");
+const date = document.querySelector("[date]");
 
 // !Dark Mode
 function setDarkMode() {
@@ -76,7 +77,7 @@ function render(data) {
   } else {
     company.innerText = `${data.company}`;
   }
-  if (data.blog === undefined || data.blog === null) {
+  if (data.blog === undefined || data.blog === null || data.blog === "") {
     link.innerText = "Not Available";
   } else {
     link.innerText = `${data.blog}`;
@@ -86,6 +87,26 @@ function render(data) {
   } else {
     twitter.innerText = `${data.twitter_username}`;
   }
+  const arr = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "April",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let time = data.created_at;
+  let temp = time.split("T")[0];
+  let year = temp.split("-")[0];
+  let month = temp.split("-")[1];
+  let day = temp.split("-")[2];
+  date.innerText = `Joined ${day} ${arr[month - 1]} ${year}`;
 }
 
 // const url = "https://api.github.com/users/";
