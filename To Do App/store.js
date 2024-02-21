@@ -27,7 +27,7 @@ const storeHandler = {
     if (property == "todos") {
       window.dispatchEvent(new Event("todosChange"));
     }
-    localStorage.setItem('store',JSON.stringify(store));
+    localStorage.setItem("store", JSON.stringify(store));
     return true;
   },
 };
@@ -46,8 +46,8 @@ function toggleCompleted(id, completed) {
   storeProxy.todos = storeProxy.todos.map((todo) => {
     if (todo.id === id) {
       return { ...todo, completed: completed };
-    }else{
-        return todo;
+    } else {
+      return todo;
     }
   });
 }
