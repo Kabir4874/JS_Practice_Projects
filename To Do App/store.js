@@ -27,6 +27,7 @@ const storeHandler = {
     if (property == "todos") {
       window.dispatchEvent(new Event("todosChange"));
     }
+    localStorage.setItem('store',JSON.stringify(store));
     return true;
   },
 };
@@ -37,5 +38,19 @@ function addTodo(newTodo) {
   storeProxy.todos = [...storeProxy.todos, newTodo];
 }
 
-export { addTodo };
+function deleteTodo(id) {
+  storeProxy.todos = storeProxy.todos.filter((todo) => todo.id !== id);
+}
+
+function toggleCompleted(id, completed) {
+  storeProxy.todos = storeProxy.todos.map((todo) => {
+    if (todo.id === id) {
+      return { ...todo, completed: completed };
+    }else{
+        return todo;
+    }
+  });
+}
+
+export { addTodo, deleteTodo, toggleCompleted };
 export default storeProxy;
